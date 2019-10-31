@@ -1,0 +1,24 @@
+server {
+    listen       80;
+    server_name  {{ item }} www.{{ item }};
+    root /var/www/{{ item }};
+
+    {% for nginx_location in nginx_locations %} 
+    location = {{ nginx_location }} {
+        return 200 "OK from {{ nginx_location }}";
+    } 
+    {% endfor %}
+
+    access_log /var/log/nginx/{{ item }}_access_log;
+    error_log /var/log/nginx/{{ item }}_error_log;
+
+    error_page  500 502 503 504  /50x.html;
+
+    location = /50x.html {
+        root  /usr/share/nginx/html;
+    } 
+
+    location ~* ^.+\.(jpg|jpeg|gif|png|css|zip|tgz|gz|rar|bz2|doc|docx|xls|xlsx|exe|pdf|ppt|tar|wav|bmp|rtf|js)$ {
+            expires modified +1w;
+    }
+}

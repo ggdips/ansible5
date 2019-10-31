@@ -1,0 +1,12 @@
+all:
+    children:
+        web:
+            hosts:
+                ans5.kornyakovdy.devops.rebrain.srwx.net:
+            vars:
+                ansible_user: root
+                ansible_ssh_private_key_file: /home/d.kornyakov/ansible5/.ssh/id_rsa
+                nginx_worker_connections: 2048
+                nginx_client_max_body_size: 64M
+                nginx_locations: ["/location1", "/location2", "/location3"]
+                nginx_vhosts: ["vhost1", "vhost2"]

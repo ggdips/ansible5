@@ -1,0 +1,50 @@
+variable "vs_token" {
+  default  = "Put your token here"
+}
+
+variable "aws_acckey" {
+  default  = "Put your AWS access key here"
+}
+
+variable "aws_skey" {
+  default  = "Put your AWS secret key here"
+}
+
+variable "vscale_msk" {
+  description = "vscale MSK data"
+  default     = "msk0"
+}
+
+variable "vscale_centos_7" {
+  description = "centos"
+  default     = "centos_7_64_001_master"
+}
+
+variable "vscale_rplan" {
+  type = "map"
+  default = {
+    "s"   = "small"
+    "m"   = "medium"
+    "l"   = "large"
+    "xl"  = "huge"
+    "xxl" = "monster"
+  }
+}
+
+variable "devs" {
+  type    = "list"
+  default = ["Put your hostname1 here", ""Put your hostname2 here", etc...]
+}
+
+variable "ansible_extra" {
+  type = "map"
+  default = {
+      "ans_inv_name" = "production"
+      "ans_extra_user" = "root"
+      "ans_extra_wc" = "2048"
+      "ans_extra_cmbs" = "64M"
+      "ans_extra_vhosts" = "[\"vhost1\", \"vhost2\"]"
+      "ans_extra_locs" = "[\"/location1\", \"/location2\", \"/location3\"]"
+    }
+}
+

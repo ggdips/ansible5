@@ -1,0 +1,5 @@
+---
+nginx_worker_connections: 2048
+nginx_client_max_body_size: 64M
+nginx_locations: ["/"]
+nginx_vhosts: ["vhost1"]
