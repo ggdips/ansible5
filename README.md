@@ -82,16 +82,16 @@ variable "ansible_extra" {
 terraform init
 terraform apply
 ```
-#Ansible Role for Nginx installation
+# Ansible Role for Nginx installation
 
 This Ansible role installs the Nginx and configures it for running with several virtual hosts
 
-###Requirements
+### Requirements
 Ansible, Redhat family OS
 ```
 yum install -y ansible
 ```
-####Role Variables
+#### Role Variables
 You must provide ansible:
 
 ```
